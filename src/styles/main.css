@@ -1,0 +1,37 @@
+.navbar {
+    position: fixed;
+    bottom: 0;
+    width: inherit;
+    max-width: 95vw;
+}
+
+.children {
+    margin-bottom: 4rem;
+    width: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    margin: auto;
+    width: 99vw;
+    align-items: center;
+}
+
+.contentContainer {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: auto;
+    max-width: 95vw;
+}
