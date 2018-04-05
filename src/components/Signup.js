@@ -13,6 +13,7 @@ export default class Login extends React.Component {
             username: "",
             password: "",
             email: "",
+            groupId: "",
             error: null,
         }
         this.postSignup = postSignup;
@@ -37,6 +38,12 @@ export default class Login extends React.Component {
         })
     }
 
+    changeGroupId(e) {
+        this.setState({
+            groupId: e.target.value.toString().toLowerCase()
+        })
+    }
+
     showError(error) {
         this.setState({
             error
@@ -53,10 +60,10 @@ export default class Login extends React.Component {
     handleSubmit(e) {
         console.log("Submit called");
         e.preventDefault();
-        let { username, password, email } = this.state;
+        let { username, password, email, groupId } = this.state;
         console.log("Submitted as: ", username, email, password);
-        if (username && password && email) {
-            this.postSignup(username, email, password)
+        if (username && password && email && groupId) {
+            this.postSignup(username, email, password, groupId)
                 .then((resolve) => {
                     console.log("Resolved as: ", resolve);
                     this.setCredentials(resolve.message)
@@ -85,7 +92,7 @@ export default class Login extends React.Component {
 
     render() {
         return (
-            <div tabIndex="0">
+            <div tabIndex="0" className="logincontainter">
                 <form onSubmit={this.handleSubmit.bind(this)}>
                     <div className="textBox">
                         <TextField
@@ -102,6 +109,14 @@ export default class Login extends React.Component {
                             fullWidth={true}
                             onChange={this.changeEmail.bind(this)}
                             value={this.state.email}
+                        />
+                    </div>
+                    <div className="textBox">
+                        <TextField
+                            hintText="Group ID"
+                            fullWidth={true}
+                            onChange={this.changeGroupId.bind(this)}
+                            value={this.state.groupId}
                         />
                     </div>
                     <div className="textBox">

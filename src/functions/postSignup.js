@@ -1,11 +1,11 @@
 import { backendUrl } from '../config/config';
 
-export function postSignup(username, email, password) {
-    console.log("postingSignup as: ", username, password);
+export function postSignup(username, email, password, groupId) {
+    console.log("postingSignup as: ", username, password), groupId;
     return new Promise((resolve, reject) => {
         let route = backendUrl + "signup";
         let body = {
-            username, email, password
+            username, email, password, groupId
         }
         let options = {
             method: "POST",
