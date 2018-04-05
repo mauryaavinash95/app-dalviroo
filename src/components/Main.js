@@ -11,11 +11,11 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import FontIcon from 'material-ui/FontIcon';
 import { BottomNavigation, BottomNavigationItem } from 'material-ui/BottomNavigation';
 import Paper from 'material-ui/Paper';
-import Home from 'material-ui/svg-icons/action/home';
-import Recent from 'material-ui/svg-icons/action/restore';
-import Favorites from 'material-ui/svg-icons/action/favorite';
-const recentsIcon = <Recent />
-const favoritesIcon = <Favorites />;
+import Home from 'material-ui/svg-icons/editor/format-list-numbered';
+import CreateOrder from 'material-ui/svg-icons/editor/border-color';
+import Prediction from 'material-ui/svg-icons/editor/bubble-chart';
+const createOrderIcon = <CreateOrder />
+const predictionIcon = <Prediction />;
 const homeIcon = <Home />;
 
 const unAuthPaths = ["/"];
@@ -85,12 +85,12 @@ export default class Main extends React.Component {
                             />
                             <BottomNavigationItem
                                 label="Create Orders"
-                                icon={recentsIcon}
+                                icon={createOrderIcon}
                                 onClick={() => this.select(paths[1])}
                             />
                             <BottomNavigationItem
-                                label="Set Prected"
-                                icon={favoritesIcon}
+                                label="Set Predicted"
+                                icon={predictionIcon}
                                 onClick={() => this.select(paths[2])}
                             />
                         </BottomNavigation>
