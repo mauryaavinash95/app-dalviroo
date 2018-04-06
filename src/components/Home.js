@@ -4,6 +4,8 @@ import AutoComplete from 'material-ui/AutoComplete';
 import Autosuggest from 'react-autosuggest';
 import RaisedButton from 'material-ui/RaisedButton';
 import RefreshIndicator from 'material-ui/RefreshIndicator';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import Print from 'material-ui/svg-icons/action/print';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn, } from 'material-ui/Table';
 import moment from 'moment';
 
@@ -116,7 +118,7 @@ export default class Home extends React.Component {
                         <TableRowColumn>{order.requiredQuantity}</TableRowColumn>
                         <TableRowColumn>{order.createdTillNow} {this.lastFormat(order.lastCreated)}</TableRowColumn>
                         <TableRowColumn>{order.predicted} {this.lastFormat(order.timeCreated)}</TableRowColumn>
-                        <TableRowColumn>
+                        <TableRowColumn className="no-print">
                             <RaisedButton label="Done"
                                 onClick={
                                     () => {
@@ -168,7 +170,7 @@ export default class Home extends React.Component {
                                 <TableHeaderColumn>Required Quantity</TableHeaderColumn>
                                 <TableHeaderColumn>Created Till Now</TableHeaderColumn>
                                 <TableHeaderColumn>Predicted</TableHeaderColumn>
-                                <TableHeaderColumn>Done</TableHeaderColumn>
+                                <TableHeaderColumn className="no-print">Done</TableHeaderColumn>
                             </TableRow>
                         </TableHeader>
                         <TableBody
@@ -178,6 +180,9 @@ export default class Home extends React.Component {
                         </TableBody>
                     </Table>
                 </div>
+                <FloatingActionButton mini={true} className="printButton no-print" data-toggle="tooltip" title="Print" onClick={() => { window.print() }}>
+                    <Print />
+                </FloatingActionButton>
             </div>
         )
     }
