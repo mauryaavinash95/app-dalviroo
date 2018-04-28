@@ -1,7 +1,7 @@
 import openSocket from 'socket.io-client';
 import { getCredentials } from './credentials';
-
-export const socket = openSocket('http://54.148.0.172:4010/');
+import { backendUrl } from '../config/config';
+export const socket = openSocket(backendUrl);
 
 export const initConnection = () => {
     return new Promise((resolve, reject) => {
